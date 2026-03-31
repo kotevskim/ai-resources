@@ -114,3 +114,18 @@ Markdown files where the filename becomes the command (e.g. `db-migrate.md` → 
 Reusable instruction sets that Claude is supposed to auto-load when it detects a match — essentially giving Claude a playbook for a specific type of task (e.g. "how to write JOOQ queries in this project").
 
 **Why not using:** For a solo side project, CLAUDE.md and `.claude/rules/` already cover this. Skills add value when you're packaging reusable capabilities across multiple projects or sharing them with a team. The auto-invocation is also unreliable — you'd end up explicitly invoking them anyway, at which point a well-written CLAUDE.md section does the same job with less overhead.
+
+
+## Skills vs Rules
+Claude Code works with both rules and skills, serving different purposes for managing context and instructions. Rules (usually in CLAUDE.md or .claude/rules/) provide persistent, foundational constraints. Skills (in .claude/skills/) act as modular, on-demand instructions that Claude loads only when relevant, saving tokens. 
+
+How They Differ:
+- Rules (CLAUDE.md): These are persistent instructions loaded every session. Use them for coding conventions, build commands, and "never do X" rules.
+Sk- ills (.claude/skills/): These are task-specific, optional instructions or workflows (e.g., /deploy or specific API documentation) that Claude only activates when needed, preventing them from clogging the context window. 
+
+Key Takeaways:
+- Best Practices: Put persistent project guidelines in CLAUDE.md. Use Skills for large reference materials or specialized, repetitive tasks to manage context efficienty.
+- Functionality: Both can be invoked by the user, and Skills allow for custom commands that Claude can use autonomously. 
+
+Essentially, rules act as the "standing orders," while skills act as "on-demand expert knowledge." 
+
